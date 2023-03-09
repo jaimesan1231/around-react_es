@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/jaimesan1231/around-react_es/static/css/main.e6bea9c5.css",
+    "main.js": "/jaimesan1231/around-react_es/static/js/main.b480ab09.js",
+    "static/js/787.33e33395.chunk.js": "/jaimesan1231/around-react_es/static/js/787.33e33395.chunk.js",
+    "static/media/logo.svg": "/jaimesan1231/around-react_es/static/media/logo.50fce9df697a0797141191436383ff74.svg",
+    "static/media/like.svg": "/jaimesan1231/around-react_es/static/media/like.3826c074a1b94b101e38.svg",
+    "index.html": "/jaimesan1231/around-react_es/index.html",
+    "static/media/Trash.svg": "/jaimesan1231/around-react_es/static/media/Trash.8cb59aa98088a1653f62.svg",
+    "static/media/like-active.svg": "/jaimesan1231/around-react_es/static/media/like-active.226461bd64622361ffb2.svg",
+    "static/media/edit.svg": "/jaimesan1231/around-react_es/static/media/edit.8667ac4a523e8fc42e59641845fc8448.svg",
+    "static/media/add.svg": "/jaimesan1231/around-react_es/static/media/add.d86bb2edc2f6eadb96b785d29c82b56e.svg",
+    "main.e6bea9c5.css.map": "/jaimesan1231/around-react_es/static/css/main.e6bea9c5.css.map",
+    "main.b480ab09.js.map": "/jaimesan1231/around-react_es/static/js/main.b480ab09.js.map",
+    "787.33e33395.chunk.js.map": "/jaimesan1231/around-react_es/static/js/787.33e33395.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6bea9c5.css",
+    "static/js/main.b480ab09.js"
+  ]
+}
