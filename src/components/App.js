@@ -48,29 +48,33 @@ function App() {
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
       >
-        <label className="form__label">
-          <input
-            type="text"
-            className="form__input"
-            id="name"
-            minLength="2"
-            maxLength="40"
-            required
-          />
-          <span className="form__input-error" id="name-error"></span>
-        </label>
-        <label className="form__label">
-          <input
-            type="text"
-            className="form__input"
-            id="job"
-            minLength="2"
-            maxLength="200"
-            required
-          />
-          <span className="form__input-error" id="job-error"></span>
-        </label>
-        <button className="form__button form__button_disabled">Guardar</button>
+        <>
+          <label className="form__label">
+            <input
+              type="text"
+              className="form__input"
+              id="name"
+              minLength="2"
+              maxLength="40"
+              required
+            />
+            <span className="form__input-error" id="name-error"></span>
+          </label>
+          <label className="form__label">
+            <input
+              type="text"
+              className="form__input"
+              id="job"
+              minLength="2"
+              maxLength="200"
+              required
+            />
+            <span className="form__input-error" id="job-error"></span>
+          </label>
+          <button className="form__button form__button_disabled">
+            Guardar
+          </button>
+        </>
       </PopupWithForm>
       <PopupWithForm
         title="Agregar"
@@ -78,29 +82,31 @@ function App() {
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
       >
-        <label className="form__label">
-          <input
-            type="text"
-            className="form__input"
-            id="title"
-            placeholder="Titulo"
-            minLength="2"
-            maxLength="30"
-            required
-          />
-          <span className="form__input-error" id="title-error"></span>
-        </label>
-        <label className="form__label">
-          <input
-            type="url"
-            className="form__input"
-            id="link"
-            placeholder="Enlace a la imagen"
-            required
-          />
-          <span className="form__input-error" id="link-error"></span>
-        </label>
-        <button className="form__button form__button_disabled">Crear</button>
+        <>
+          <label className="form__label">
+            <input
+              type="text"
+              className="form__input"
+              id="title"
+              placeholder="Titulo"
+              minLength="2"
+              maxLength="30"
+              required
+            />
+            <span className="form__input-error" id="title-error"></span>
+          </label>
+          <label className="form__label">
+            <input
+              type="url"
+              className="form__input"
+              id="link"
+              placeholder="Enlace a la imagen"
+              required
+            />
+            <span className="form__input-error" id="link-error"></span>
+          </label>
+          <button className="form__button form__button_disabled">Crear</button>
+        </>
       </PopupWithForm>
       <PopupWithForm
         title="Avatar"
@@ -108,17 +114,21 @@ function App() {
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
       >
-        <label className="form__label">
-          <input
-            type="url"
-            className="form__input"
-            id="avatar"
-            placeholder="Enlace a la imagen"
-            required
-          />
-          <span className="form__input-error" id="avatar-error"></span>
-        </label>
-        <button className="form__button form__button_disabled">Guardar</button>
+        <>
+          <label className="form__label">
+            <input
+              type="url"
+              className="form__input"
+              id="avatar"
+              placeholder="Enlace a la imagen"
+              required
+            />
+            <span className="form__input-error" id="avatar-error"></span>
+          </label>
+          <button className="form__button form__button_disabled">
+            Guardar
+          </button>
+        </>
       </PopupWithForm>
       <PopupWithForm title="Eliminar" name="delete">
         <button className="form__button form__button_disabled">Sí</button>
