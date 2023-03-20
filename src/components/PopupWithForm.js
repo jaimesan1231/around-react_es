@@ -1,7 +1,14 @@
 import React from "react";
 import addIcon from "../images/add.svg";
 
-const PopupWithForm = ({ children, title, name, isOpen, onClose }) => {
+const PopupWithForm = ({
+  children,
+  title,
+  name,
+  isOpen,
+  onClose,
+  onSubmit,
+}) => {
   return (
     <div
       className={`popup ${isOpen ? "popup_opened" : ""}`}
@@ -14,7 +21,13 @@ const PopupWithForm = ({ children, title, name, isOpen, onClose }) => {
           className="popup__close-icon"
           onClick={onClose}
         />
-        <form action="#" className="form" id={`${name}-form`} noValidate>
+        <form
+          action="#"
+          className="form"
+          id={`${name}-form`}
+          noValidate
+          onSubmit={onSubmit}
+        >
           <h2 className="form__title">{title}</h2>
           {children}
         </form>

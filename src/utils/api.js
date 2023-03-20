@@ -14,13 +14,13 @@ class Api {
     });
   }
   editProfile(body) {
-    const { name, job } = body;
+    const { name, about } = body;
     return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this.headers,
       body: JSON.stringify({
         name: name,
-        about: job,
+        about: about,
       }),
     });
   }
@@ -33,17 +33,18 @@ class Api {
       }),
     });
   }
-  putLike(cardId) {
-    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
-      method: "PUT",
-      headers: this.headers,
-    });
-  }
-  removeLike(cardId) {
-    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
-      method: "DELETE",
-      headers: this.headers,
-    });
+  changeLikeCardStatus(cardId, isLiked) {
+    if (isLiked) {
+      return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+        method: "DELETE",
+        headers: this.headers,
+      });
+    } else {
+      return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+        method: "PUT",
+        headers: this.headers,
+      });
+    }
   }
 
   postCard(body) {
