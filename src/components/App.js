@@ -50,96 +50,43 @@ function App() {
   };
   const handleCardLike = (card) => {
     const isLiked = card.likes.some((like) => like._id === currentUser._id);
-    api
-      .changeLikeCardStatus(card._id, isLiked)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return Promise.reject(`Error: ${res.status}`);
-        }
-      })
-      .then((newCard) => {
-        setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
-        );
-      });
+    api.changeLikeCardStatus(card._id, isLiked).then((newCard) => {
+      setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+    });
   };
   const handleDeleteCard = (cardId) => {
-    api.deleteCard(cardId).then((res) => {
-      if (res.ok) {
-        setCards((state) => state.filter((c) => c._id !== cardId));
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    });
+    api.deleteCard(cardId, () =>
+      setCards((state) => state.filter((c) => c._id !== cardId))
+    );
   };
 
   const handleUpdateUser = ({ name, about }) => {
     api
       .editProfile({ name, about })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return Promise.reject(`Error: ${res.status}`);
-        }
-      })
       .then((data) =>
         setCurrentUser({ ...currentUser, name: data.name, about: data.about })
       );
   };
   const handleUpdateAvatar = (link) => {
-    api.editAvatar(link).then((res) => {
-      if (res.ok) {
-        setCurrentUser({ ...currentUser, avatar: link });
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    });
+    api
+      .editAvatar(link)
+      .then((data) => setCurrentUser({ ...currentUser, avatar: data.avatar }));
   };
   const handleAppPlaceSubmit = ({ title, link }) => {
-    api
-      .postCard({ title, link })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return Promise.reject(`Error:${res.status}`);
-        }
-      })
-      .then((newCard) => {
-        setCards([newCard, ...cards]);
-      });
+    api.postCard({ title, link }).then((newCard) => {
+      setCards([newCard, ...cards]);
+    });
   };
 
   React.useEffect(() => {
-    api
-      .getUserInfo()
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return Promise.reject(`Error:${res.status}`);
-        }
-      })
-      .then((data) => {
-        setCurrentUser(data);
-      });
+    api.getUserInfo().then((data) => {
+      setCurrentUser(data);
+    });
   }, []);
   React.useEffect(() => {
-    api
-      .getInitialCards()
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return Promise.reject(`Error:${res.status}`);
-        }
-      })
-      .then((data) => {
-        setCards(data);
-      });
+    api.getInitialCards().then((data) => {
+      setCards(data);
+    });
   }, []);
   return (
     <CurrentUserContext.Provider value={currentUser}>
